@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+int main() {
+    // Variables
+    float precioProducto = 1.5;  // Precio del producto
+    float montoIngresado;        // Monto ingresado por el usuario
+    float cambio;                // Cantidad de cambio a devolver
+    
+    // Solicitar al usuario el monto ingresado
+    printf("Ingrese el monto: ");
+    scanf("%f", &montoIngresado);
+    
+    // Verificar si el monto ingresado es suficiente
+    if (montoIngresado >= precioProducto) {
+        // Calcular el cambio
+        cambio = montoIngresado - precioProducto;
+        
+        // Imprimir el cambio
+        printf("Cambio: %.2f\n", cambio);
+    } else {
+        printf("Monto insuficiente. Se requiere al menos %.2f\n", precioProducto);
+    }
+    
+    return 0;
+}
