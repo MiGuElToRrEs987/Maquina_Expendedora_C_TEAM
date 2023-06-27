@@ -1,0 +1,168 @@
+Estructura Producto:
+    entero id
+    cadena nombre
+    flotante precio
+    entero cantidad
+
+Función mostrarMenu():
+    Imprimir "----- Máquina Expendedora de Dulces -----"
+    Imprimir "1. Mostrar productos disponibles"
+    Imprimir "2. Seleccionar un producto"
+    Imprimir "3. Modo Administrador"
+    Imprimir "4. Realizar operación"
+    Imprimir "5. Salir"
+    Imprimir "-----------------------------------------"
+
+Función mostrarProductos(productos[], numProductos):
+    Imprimir "----- Productos Disponibles -----"
+    Para cada producto en productos:
+        Imprimir "ID: " + producto.id
+        Imprimir "Nombre: " + producto.nombre
+        Imprimir "Precio: " + producto.precio
+        Imprimir "Cantidad: " + producto.cantidad
+        Imprimir "-----------------------"
+
+Función seleccionarProducto(productos[], numProductos):
+    entero idProducto
+    Imprimir "Ingrese el ID del producto: "
+    Leer idProducto
+
+    Llamar a validarCompra(productos, numProductos, idProducto)
+
+Función validarCompra(productos[], numProductos, idProducto):
+    entero indiceProducto = -1
+    Para i desde 0 hasta numProductos:
+        Si productos[i].id es igual a idProducto:
+            indiceProducto = i
+            Salir del bucle
+
+    Si indiceProducto es igual a -1:
+        Imprimir "El ID del producto no existe."
+    De lo contrario:
+        flotante precioProducto = productos[indiceProducto].precio
+        entero cantidadProducto = productos[indiceProducto].cantidad
+
+        Si cantidadProducto es igual a 0:
+            Imprimir "El producto no está disponible en este momento."
+        De lo contrario:
+            Imprimir "Has comprado el producto: " + productos[indiceProducto].nombre
+            # Realizar las operaciones de compra y entrega del producto
+            # ...
+
+Función mostrarPrecios(productos[], numProductos):
+    Imprimir "----- Lista de Precios -----"
+    Para cada producto en productos:
+        Imprimir "Nombre: " + producto.nombre
+        Imprimir "Precio: " + producto.precio
+        Imprimir "-----------------------"
+
+Función gestionInventario(productos[], numProductos):
+    entero idProducto
+    entero nuevaCantidad
+
+    Imprimir "Ingrese el ID del producto: "
+    Leer idProducto
+
+    entero indiceProducto = -1
+    Para i desde 0 hasta numProductos:
+        Si productos[i].id es igual a idProducto:
+            indiceProducto = i
+            Salir del bucle
+
+    Si indiceProducto es igual a -1:
+        Imprimir "El ID del producto no existe."
+    De lo contrario:
+        Imprimir "Ingrese la nueva cantidad: "
+        Leer nuevaCantidad
+
+        productos[indiceProducto].cantidad = nuevaCantidad
+        Imprimir "La cantidad del producto se actualizó correctamente."
+
+Función gestionDinero():
+    # Función para gestionar el dinero de la máquina expendedora
+    # ...
+
+Función sumar(a, b):
+    Retornar a + b
+
+Función restar(a, b):
+    Retornar a - b
+
+Función multiplicar(a, b):
+    Retornar a * b
+
+Función dividir(a, b):
+    Retornar a / b
+
+Función realizarOperacion():
+    entero opcion
+    flotante num1, num2
+
+    Imprimir "Seleccione una operación:"
+    Imprimir "1. Suma"
+    Imprimir "2. Resta"
+    Imprimir "3. Multiplicación"
+    Imprimir "4. División"
+    Imprimir "Ingrese una opción: "
+    Leer opcion
+
+    Imprimir "Ingrese el primer número: "
+    Leer num1
+
+    Imprimir "Ingrese el segundo número: "
+    Leer num2
+
+    flotante resultado
+    Según opcion:
+        Caso 1:
+            resultado = sumar(num1, num2)
+            Imprimir "El resultado de la suma es: " + resultado
+        Caso 2:
+            resultado = restar(num1, num2)
+            Imprimir "El resultado de la resta es: " + resultado
+        Caso 3:
+            resultado = multiplicar(num1, num2)
+            Imprimir "El resultado de la multiplicación es: " + resultado
+        Caso 4:
+            Si num2 es igual a 0:
+                Imprimir "No se puede dividir entre cero."
+            De lo contrario:
+                resultado = dividir(num1, num2)
+                Imprimir "El resultado de la división es: " + resultado
+        De lo contrario:
+            Imprimir "Opción inválida. Por favor, seleccione una opción válida."
+
+Función modoAdministrador():
+    # Función para acceder al modo administrador (oculto)
+    # ...
+
+Función principal():
+    productos = [
+        Producto(1, "Dulce 1", 1.50, 10),
+        Producto(2, "Dulce 2", 2.00, 5),
+        Producto(3, "Dulce 3", 0.75, 8)
+    ]
+    numProductos = tamaño de productos
+
+    entero opcion
+    Hacer:
+        mostrarMenu()
+        Imprimir "Ingrese una opción: "
+        Leer opcion
+
+        Según opcion:
+            Caso 1:
+                mostrarProductos(productos, numProductos)
+            Caso 2:
+                seleccionarProducto(productos, numProductos)
+            Caso 3:
+                modoAdministrador()
+            Caso 4:
+                realizarOperacion()
+            Caso 5:
+                Imprimir "¡Gracias por usar la máquina expendedora!"
+            De lo contrario:
+                Imprimir "Opción inválida. Por favor, seleccione una opción válida."
+    Mientras opcion sea diferente de 5
+
+Fin de la función principal
